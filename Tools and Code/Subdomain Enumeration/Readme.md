@@ -11,11 +11,16 @@
   </li>
 </ul>
 
+
 <h2>Görseller:</h2>
 <div>
   <img src="../../images/pan1.png" alt="Pan Görsel 1" style="margin-bottom: 10px;">
   <br>
+  
+----------------------------------------------------------------------------------------------------------
   <img src="../../images/pan2.png" alt="Pan Görsel 2" style="margin-bottom: 10px;">
+  
+----------------------------------------------------------------------------------------------------------
   <br>
   <img src="../../images/pan3.png" alt="Pan Görsel 3" style="border: 2px solid black;">
 </div>
