@@ -19,3 +19,17 @@
   <br>
   <img src="../../images/pan3.png" alt="Pan Görsel 3" style="border: 2px solid black;">
 </div>
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+https://medium.com/@securitytalent/top-10-subdomain-finders-for-great-website-reconnaissance-in-bug-bounty-ea269b7c4608
+
+
+
+https://www.forknerds.com/subdomain-finder-tools/
+
+https://hayageek.com/subdomain-gathering-tools/
+
