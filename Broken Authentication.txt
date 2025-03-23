@@ -1,0 +1,88 @@
+Broken Authentication, kimlik doğrulama mekanizmalarındaki zafiyetler veya yanlış yapılandırmalar nedeniyle yetkisiz erişim
+
+
+Broken Authentication'ın Yaygın Nedenleri
+Zayıf Parola Politikaları: Kullanıcıların zayıf veya tahmin edilebilir parolalar kullanması, brute force ve sözlük saldırıları gibi yöntemlerle hesapların ele geçirilmesini kolaylaştırır.
+Oturum Yönetimi Hataları: Güvenli olmayan oturum kimlik doğrulama ve yönetimi, oturum çalma ve oturum kimlik bilgilerinin ele geçirilmesi gibi saldırılara zemin hazırlar. Varsayılan Kimlik Bilgileri: Varsayılan kullanıcı adı ve parolaların değiştirilmemesi, saldırganların bu bilgileri kullanarak sistemlere kolayca erişim sağlamasına neden olabilir.
+Yanlış Yapılandırılmış Kimlik Doğrulama Mekanizmaları: Kimlik doğrulama süreçlerindeki yapılandırma hataları, yetkisiz erişim ve güvenlik açıklarına yol açabilir.
+Çok Faktörlü Kimlik Doğrulama (MFA) Eksikliği: MFA kullanılmaması veya yanlış uygulanması, hesap güvenliğini önemli ölçüde riske sokar.
+
+Parola Tabanlı Kimlik Doğrulama
+Çok Faktörlü Kimlik Doğrulama (MFA)
+Biyometrik Kimlik Doğrulama
+Tek Kullanımlık Şifreler (OTP
+Donanım Tabanlı Tokenler
+
+
+---
+Yanlış Hata Mesajları
+
+"The username is correct, but the password is incorrect."
+"Invalid username."
+"Account is disabled."
+"This user is not active."
+Doğru Hata Mesajları
+
+"Login failed; invalid username or password."
+"Login failed; incorrect username or password."
+
+---
+Parola Sıfırlama İşlevleri
+
+---
+
+Default Credentials (Varsayılan Kimlik Bilgileri)
+---
+
+Rate Limiting,Çok Faktörlü Kimlik Doğrulama (MFA),Hesap Kilitleme,Captcha Kullanımı
+
+---
+Tüm çerezlerin HTTPS üzerinden iletilmesini sağlamak.
+Çerezlere Secure bayrağı ekleyerek yalnızca güvenli bağlantılarda iletilmesini sağlamak.
+
+Uzun Süreli Geçerlilik (Long-lived Cookies)
+
+Tahmin Edilebilir Değerler (Predictable Values)
+
+Güvenlik Bayraklarının Eksikliği (Missing Security Flags)
+
+
+Çerezlere HttpOnly bayrağı eklemek.
+SameSite bayrağı ile çerezlerin sadece aynı siteye ait isteklerde gönderilmesini sağlamak.
+
+
+---
+
+
+Object Injection (Nesne Enjeksiyonu), bir uygulamanın, kullanıcılardan alınan verileri doğrudan bir nesnenin özelliklerine atadığı süreçte ortaya çıkan bir güvenlik açığıdır. Bu tür bir zafiyet, saldırganların uygulama nesnelerine istenmeyen veya zararlı değerler atamasına olanak tanır. Bu, uygulamanın iş mantığını bozabilir, yetkisiz erişim sağlayabilir veya diğer güvenlik zafiyetlerini tetikleyebilir.
+
+Mass Assignment (Toplu Atama), kullanıcıdan alınan verilerin doğrudan bir nesnenin birçok özelliğine atanması sürecidir. Bu yöntem, kullanıcı tarafından gönderilen tüm parametrelerin bir nesneye atanmasına olanak tanır. Eğer uygulama, hangi alanların atanabileceğini açıkça belirlemezse, saldırganlar, istenmeyen alanlara da değer atayarak güvenlik açıklarından yararlanabilirler.
+
+
+Saldırgan, formu manipüle ederek is_admin gibi olası veri alanlarına değer atayarak sunucuya istek gönderebilir ve kendisine yönetici yetkileri atayabilir.
+
+
+
+Olması gereken
+user = User(username=params['username'], password=params['password'], email=params['email'])
+White-listing,Black-listing
+params.require(:user).permit(:username, :password, :email)
+
+
+ORM Özelliklerini Kullanmak
+
+ORM (Object-Relational Mapping) özelliklerini kullanarak güvenli atamaları sağlamak.
+
+---
+Çerezlerin JavaScript tarafından okunmasını engelleyen bayrak (flag) nedir? httponly
+
+
+
+---
+
+
+
+
+
+
+
